@@ -16,7 +16,8 @@ Based on the information given, break this ticket down into 2-5 individual ticke
 You will be graded on the level of detail in each ticket, the clarity of the execution plan within and between tickets, and the intelligibility of your language. You don't need to be a native English speaker, but please proof-read your work.
 
 ## Your Breakdown Here
-#####Assumptions made:
+
+###Assumptions made
 - The API service is structured in 3 layers, application, logic and data. 
 Application layer is exposed with a API contract for the clients who use these.
 All business logic goes in logic layer
@@ -27,82 +28,82 @@ to pick from each other. Flag will be off for production env and new API contrac
 be hidden to use. Flag will be ON on development environment for testing. 
  
 
-####Ticket 1:
-#####Title: 
+###Ticket 1
+####Title 
 Agent Schema: update id type 
-#####Details: 
+####Details 
 - Update Schema to have both uuid and custom string as Agent id
  
-#####Acceptance Criteria:
+####Acceptance Criteria
 - Should be Backwards compatible
 
-#####Estimated Points: 1
+####Estimated Points: 1
 
-####Ticket 2:
-#####Title:  
+###Ticket 2
+####Title  
 Logic layer: Accept custom id for agents while create
-#####Details: 
+####Details 
 - Accept optional optional custom id parameter in Agents logic layer create function
 - if custom id not passed(as its optional), keep the existing flow
 - if custom id present, Check if custom id already exists by calling Agent's data layer getById function
 - if exists Throw unique id exception
 - if doesn't exists call Agent's data layer create function with custom id along with other details 
  
-#####Acceptance Criteria:
+####Acceptance Criteria
 - Unit tests updated
 - Should be Backwards compatible
 
-#####Estimated Points: 3
+####Estimated Points: 3
 
-####Ticket 3:
-#####Title: 
+###Ticket 3
+####Title 
 Data layer: Accept optional custom id for agents while create
-#####Details: 
+####Details 
 - Accept optional custom id parameter in Agents data layer create function
 - if custom id not passed(as its optional), keep the existing flow of generating id
 - if custom id present, save Agent data with custom id 
  
-#####Acceptance Criteria:
+####Acceptance Criteria
 - Unit tests updated
 
-#####Estimated Points: 2
+####Estimated Points: 2
 
-####Ticket 4:
-#####Title: 
+###Ticket 4
+####Title 
 API layer: Accept optional custom id for agents
-#####Details: 
+####Details 
 Add below under the feature flag.
 - Create feature flag "agent_custom_id"
 - Accept optional custom id parameter in Agents application layer create API
 - Pass the custom id to Agent's Logic layer create function 
 - Update API contract
  
-#####Acceptance Criteria:
+####Acceptance Criteria
 - API contract for clients should be updated but under feature flag
 
-#####Estimated Points: 3
+####Estimated Points: 3
 
-####Ticket 5:
-#####Title: 
+###Ticket 5
+####Title 
 Verify report Report generation
-#####Details: 
+####Details 
 - Reports are generated with Agent custom Id
  
-#####Acceptance Criteria:
+####Acceptance Criteria
 - Reports are generated with Agent custom Id
-#####Blocked by
+####Blocked by
 Ticket 1, 2,3,4
 
-#####Estimated Points: 1
+####Estimated Points: 1
 
-####Ticket 6: 
+###Ticket 6 
 (later in the backlog, to be picked after the successful release)
-#####Title: 
+####Title 
 Remove Feature Flag "agent_custom_id"
-#####Details: 
+####Details 
 - Clean code and remove "agent_custom_id" in Agent's API layer and API contract
  
-#####Acceptance Criteria:
+####Acceptance Criteria
 - API contract for clients should be updated but under feature flag
 
-#####Estimated Points: 1
+####Estimated Points: 1
